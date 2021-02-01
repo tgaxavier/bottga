@@ -697,7 +697,7 @@ async function starts() {
 						client.groupMakeAdmin(from, mentioned)
 					}
 					break
-				  case 'wa.me':
+				  case 'linkme':
 				  case 'wame':
   client.updatePresence(from, Presence.composing) 
       options = {
@@ -771,30 +771,6 @@ async function starts() {
 						console.log(`Error :`, color(e,'red'))
 						reply('username tidak valid')
 					}
-					break
-				case 'snowwrite':
-					var gh = body.slice(11)
-					var gbl7 = gh.split("|")[0];
-					var gbl8 = gh.split("|")[1];
-					if (args.length < 1) return reply(`Kirim perintah ${prefix}snowwrite teks1|teks2, contoh ${prefix}snowwrite aqulzz|galuh`)
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-					reply(mess.wait)
-					anu = await fetchJson(`https://zeksapi.herokuapp.com/api/snowwrite?text1=${gbl7}&text2=${gbl8}&apikey=apivinz`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
-                                        await limitAdd(sender)
-					break
-				case 'marvellogo':
-					var gh = body.slice(12)
-					if (args.length < 1) return reply(`Kirim perintah ${prefix}marvellogo teks, contoh ${prefix}marvellogo Nazwa Canss`)
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-					reply(mess.wait)
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=snow&text=${gh}&apikey=BotWeA`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
-                                        await limitAdd(sender)
 					break
 
 				case 'artinama':
@@ -1172,12 +1148,6 @@ async function starts() {
 					}
 					reply('╔══✪〘 Mention All 〙✪══\n╠➥'+teks+'╚═〘 - - - - - 〙')
 					break
-				case 'send':
-					var pc = body.slice(6)
-					var nomor = pc.split("|")[0];
-					var pesan = pc.split("|")[1];
-					client.sendMessage(nomor+'@s.whatsapp.net', pesan, text)
-					break
 					case 'quotesnime':
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
@@ -1232,37 +1202,6 @@ async function starts() {
 						reply('Suksess broadcast group')
 					}
 					break
-				case 'alay':
-                    client.updatePresence(from, Presence.composing) 
-                    if (!isRsgister) return reply(mess.only.daftarB)
-                    if (isLimit(sender)) return reply(ind.limitend(pusname))
-                    data = await fetchJson(`https://arugaz.my.id/api/edu/corona?country=indonesia}`)
-                    reply(data.result)
-                    await limitAdd(sender)
-                    break
-                    case 'quotemaker':
-                    gh = body.slice(12)
-                    if (!isRegister) return reply(mess.only.daftarB)
-                    if (isLimit(sender)) return reply(ind.limitend(pusname))
-                    teks1 = gh.split("|")[0];
-                    teks2 = gh.split("|")[1];
-                    teks3 = gh.split("|")[2]
-                    data = await fetchJson(`https://terhambar.com/aw/qts/?kata=${teks1}&author=${teks2}&tipe=${teks3}`)
-                    buffer = await getBuffer(data.result)
-                    client.sendMessage(from, buffer, image, {quoted: mek, caption: 'neh...'})
-                    await limitAdd(sender)
-                    break
-                    case 'glitch':
-                    gh = body.slice(7)
-                    if (!isRegister) return reply(mess.only.daftarB)
-                    if (isLimit(sender)) return reply(ind.limitend(pusname))
-                    teks1 = gh.split("|")[0];
-                    teks2 = gh.split("|")[1];
-                    data = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=glitch&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
-                    hasil = await getBuffer(data.result)
-                    client.sendMessage(from, hasil, image, {quoted: mek, caption: 'neh...'})
-                    await limitAdd(sender)
-                    break
                      case 'leave':
                     if (!isGroup) return reply(mess.only.group)
                     if (!isGroupAdmins) return reply(mess.only.admin)
@@ -1836,19 +1775,6 @@ async function starts() {
 					client.sendMessage(from, buffer, image, {quoted: mek})
                                         await limitAdd(sender)
 					break
-				case 'logowolf2':
-					var gh = body.slice(11)
-					var teks1 = gh.split("|")[0];
-					var teks2 = gh.split("|")[1];
-					if (args.length < 1) return reply(`teksnya mana? contoh ${prefix}logowolf Nazwa|Canss`)
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-					reply(mess.wait)
-					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=wolflogo2&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
-					buffer = await getBuffer(anu.result)
-					client.sendMessage(from, buffer, image, {quoted: mek})
-                                        await limitAdd(sender)
-					break	
                                 case 'delete':
 					case 'del':
 					if (!isGroup)return reply(mess.only.group)
@@ -1952,63 +1878,6 @@ async function starts() {
 				        uptime = process.uptime()
                                         client.sendMessage(from, `Speed: *${latensi.toFixed(4)} _Second_*\nDevice: *Black Shark 3*\nRAM: *8/128*\nData: *Smartfren*\nJaringan: *4G*\nStatus: *Di Charger*`, text, { quoted: mek})
                                         break
-                                case 'neonlogo':
-                                        var gh = body.slice(9)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}neonlogo NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=neon_light&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'neonlogo2':
-                                        var gh = body.slice(10)
-                                        teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}neonlogo2 NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=neon_technology&text=${text1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'lionlogo':
-                                        var gh = body.slice(9)
-                                        var teks1 = gh.split("|")[0];
-                                        var teks2 = gh.split("|")[1];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}lionlogo Nazwa|Canss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=lionlogo&text1=${text1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'jsholat':
-                                        loc = body.slice(8)
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (args.length < 1) return reply('Daerahnya dimana kak?')
-                                        anu = await fetchJson(`https://mhankbarbar.tech/api/jadwalshalat?daerah=${loc}&apiKey=${BarBarKey}`, {method: 'get'})
-                                        mbteks = `◪ *JAM SHALAT* \n  │\n  ├─ ❏ Daerah : ${loc} \n  ├─ ❏ Ashar : ${anu.Ashar} \n  ├─ ❏ Dhuha : ${anu.Dhuha} \n  ├─ ❏ Dzuhur : ${anu.Dzuhur} \n  ├─ ❏ Imsyak : ${anu.Imsyak} \n  ├─ ❏ Isya : ${anu.Isya} \n  ├─ ❏ Maghrib : ${anu.Maghrib} \n  └─ ❏ Subuh : ${anu.Subuh}`
-                                        client.sendMessage(from, mbteks, text)
-                                        break
-                                case 'jokerlogo':
-                                        var gh = body.slice(10)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}jokerlogo NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=jokerlogo&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
-                                        await limitAdd(sender)
-                                        break
                                 /*case 'jadwaltvnow':  
 				if (!isRegister) return reply(mess.only.daftarB)
                                reply(mess.wait)
@@ -2025,161 +1894,6 @@ async function starts() {
                                                 contextInfo: { mentionedJid: [nom] }
                                         }
                                         client.sendMessage(from, tag, text, {quoted: mek})
-                                        break
-                                case 'shadow':
-                                        var gh = body.slice(7)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}shadow NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=shadow&text=${text1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak gambarnya...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'burnpaper':
-                                        var gh = body.slice(10)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}burnpaper NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=burn_paper&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak gambarnya...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'coffee':
-                                        var gh = body.slice(7)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}coffee NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=coffee&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'lovepaper':
-                                        var gh = body.slice(10)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}lovepaper NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=love_paper&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'woodblock':
-                                        var gh = body.slice(10)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}woodblock NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=wood_block&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'qowheart':
-                                        var gh = body.slice(9)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}qowheart NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=quote_on_wood_heart&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'mutgrass':
-                                        var gh = body.slice(9)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}mutgrass NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=message_under_the_grass&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'undergocean':
-                                        var gh = body.slice(12)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}undergocean NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=underwater_ocean&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'woodenboards':
-                                        var gh = body.slice(13)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}woodenboards NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=wooden_boards&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'wolfmetal':
-                                        var gh = body.slice(10)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}wolfmetal NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=wolf_metal&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'metalictglow':
-                                        var gh = body.slice(14)
-                                        var teks1 = gh.split("|")[0];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}metalictglow NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=metalic_text_glow&text=${teks1}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case '8bit':
-                                        var gh = body.slice(5)
-                                        var teks1 = gh.split("|")[0];
-                                        var teks2 = gh.split("|")[1];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}8bit Nazwa|Canss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=bit8&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'randomkpop':
-                                        gatauda = body.slice(6)
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        reply(mess.wait)
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kpopnya kak...'})
-                                        await limitAdd(sender)
                                         break
                                 case 'fml2':
                                         getauda = body.slice(6)
@@ -2268,29 +1982,6 @@ async function starts() {
 						reply('Gagal om')
 					}
 					break
-                                case 'pubglogo':
-                                        var gh = body.slice(9)
-                                        var teks1 = gh.split("|")[0];
-                                        var teks2 = gh.split("|")[1];
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}pubglogo Nazwa|Canss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=pubg&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih logonya kak...'})
-                                        await limitAdd(sender)
-                                        break
-                                case 'herrypotter':
-                                case 'harrypotter':
-                                        var gh = body.slice(12)
-                                        if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}harrypotter NazwaCanss')
-                                        if (!isRegister) return reply(mess.only.daftarB)
-                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
-                                        anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=harry_potter&text=${gh}&apikey=BotWeA`, {method: 'get'})
-                                        buffer = await getBuffer(anu.result)
-                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak gambarnya...'})
-                                        await limitAdd(sender)
-                                        break
                                 case 'katabijak':
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
