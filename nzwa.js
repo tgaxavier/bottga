@@ -367,19 +367,23 @@ async function starts() {
                         const q = args.join(' ')
 
 			mess = {
-				wait: ' Por Favor Aguarde Um Momento',
-				success: '* SUCCESS * _Sudah jadi kak..._',
+				wait: '❬ AGUARDE ❭ um instante⏳',
+				success: ' Berhasil ',
+                                levelon: '   *Ativado leveling*',
+				leveloff: '  X   *desativado leveling*',
+				levelnoton: ' X  *Nivel nao ativo*',
+				levelnol: '*LEVEL KAKAK MASIH* 0 �-�',
 				error: {
-					stick: '*Falha, ocorreu um erro ao converter a imagem em um adesivo*',
-					Iv: '*Link invalido*'
+					stick: '[❗]  Falha, ocorreu um erro ao converter a imagem em adesivo',
+					Iv: ' Link invalido '
 				},
 				only: {
-					group: '*Este comando s� pode ser usado em grupos!!*',
-					ownerG: '*Este comando s� pode ser usado pelo grupo propriet�rio!*',
-					ownerB: '*Este comando s� pode ser usado pelo propriet�rio do bot!* ',
-					admin: '*Este comando s� pode ser usado por administradores de grupo!*',
-					Badmin: '*Este Comando so pode ser usado se o Bot for admin , nao sou M�gico para remover sem administra��o!*'
-                                        daftarB: ` REGISTRE-SE \nOla !\nVoce ainda nao se cadastrou, por favor, registre-se primeiro... \n\nComando : ${prefix}register nome|idade\nExemplo : ${prefix}register Gui|16`,
+					group: '[❗] Este comando so pode ser usado em grupos! ',
+					ownerG: '[❗] Este comando so pode ser usado pelo Admisnitrador do grupo! ',
+					ownerB: '[❗] Este comando so pode ser usado pelo proprietario do bot! ',
+					admin: '[❗] Este comando so pode ser usado pelo proprietario do bot! ',
+					Badmin: '[❗] Este comando so pode ser usado quando o bot se torna um administrador! ',
+                                        daftarB: `──「 Registre-se 」──\nOla membro comum !\nRegistre-se no banco de dados, \n\nComando : ${prefix}register nome|idade\nexemplo : ${prefix}register guilherme|27`,
 				}
 			}
     			const apakah = ['Ya','Tidak']
