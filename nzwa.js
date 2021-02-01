@@ -91,14 +91,14 @@ const { limit } = require('./database/menu/limit')
 // Load Vcard Contact
 const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
             + 'VERSION:3.0\n' 
-            + 'FN:Nazwa🖤\n' // full name
+            + 'FN:Guilherme Xavier\n' // full name
             + 'ORG:Owner Bot;\n' // the organization of the contact
-            + 'TEL;type=CELL;type=VOICE;waid=12542123926:+1 (254) 212-3926\n' // WhatsApp ID + phone number
+            + 'TEL;type=CELL;type=VOICE;waid=0812345678:+55 (65) 9907-1373\n' // WhatsApp ID + phone number
             + 'END:VCARD'
 prefix = '.'
 blocked = []
 limitawal = '20'
-cr = '*Verified*'
+cr = '*Bot Verificado*'
 
 // Functions
 const getLevelingXp = (userId) => {
@@ -315,7 +315,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Halo @${num.split('@')[0]}\nSelamat datang di group *${mdata.subject}*`
+				teks = `Ola @${num.split('@')[0]}\nBem Vindo ao hospicio*${mdata.subject}*`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -325,7 +325,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Sayonara @${num.split('@')[0]}👋`
+				teks = `Adeus Aqui So fica Quem Transa @${num.split('@')[0]}👋`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -686,14 +686,14 @@ async function starts() {
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di promote!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = 'Perintah di terima, menambah jabatan sebagai admin :\n'
+						teks = 'Pedido recebido, adicionando como administrador :\n'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
 						mentions(teks, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					} else {
-						mentions(`Perintah di terima, menambah jabatan sebagai admin : @${mentioned[0].split('@')[0]}`, mentioned, true)
+						mentions(`Pedido recebido, adicionando posi��o como administrador : @${mentioned[0].split('@')[0]}`, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					}
 					break
@@ -701,7 +701,7 @@ async function starts() {
 				  case 'wame':
   client.updatePresence(from, Presence.composing) 
       options = {
-          text: `「 *SELF WHATSAPP* 」\n\n_Request by_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nYour link WhatsApp : *wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
+          text: ` *LINK WHATSAPP* \n\n_Pedido Por_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nSeu link do whatsapp : *wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Ou ( / )*\n*api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
           contextInfo: { mentionedJid: [sender] }
     }
     client.sendMessage(from, options, text, { quoted: mek } )
@@ -733,10 +733,10 @@ async function starts() {
                 reply(hasil)
                 await limitAdd(sender)
                 break
-              case 'owner':
+              case 'dono':
                 case 'creator':
                   client.sendMessage(from, {displayname: "Jeff", vcard: vcard}, MessageType.contact, { quoted: mek})
-               client.sendMessage(from, 'Nih nomor ownerku kak, save ya kak nanti di save balik',MessageType.text, { quoted: mek} )
+               client.sendMessage(from, 'Esse e o contato do meu dono',MessageType.text, { quoted: mek} )
                 break
 	case 'hidetag':
                 client.updatePresence(from, Presence.composing) 
@@ -868,13 +868,13 @@ async function starts() {
                                         await limitAdd(sender)
 					break
 				case 'ytmp4':
-					if (args.length < 1) return reply('Urlnya mana um?')
+					if (args.length < 1) return reply('Onde esta o link?')
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
 					anu = await fetchJson(`https://mhankbarbar.tech/api/ytv?url=${args[0]}&apiKey=${BarBarKey}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					teks = `❏ *Title* : ${anu.title} \n❏ *Size* : ${anu.filesize} \n❏ *Desc* : ${anu.desc} \n\n*VIDEO SEDANG DIKIRIMKAN, JANGAN SPAM YA SAYANG...*`
+					teks = `Titulo* : ${anu.title} \n*Tamanho* : ${anu.filesize} \n*Desc* : ${anu.desc} \n\n* Aguarde ate que o video seja enviado*`
 					thumb = await getBuffer(anu.thumb)
 					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 					buffer = await getBuffer(anu.result)
@@ -945,13 +945,13 @@ async function starts() {
               reply(hasil)
               await limitAdd(sender)
               break
-				case 'joox':
+				case 'play1':
 			tels = body.slice(6)
                 data = await fetchJson(`https://tobz-api.herokuapp.com/api/joox?q=${tels}&apikey=BotWeA`, {method: 'get'})
                if (!isRegister) return reply(mess.only.daftarB)
                if (isLimit(sender)) return reply(ind.limitend(pusname))
                if (data.error) return reply(data.error)
-                 infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${data.result.judul}\nAlbum : ${data.result.album}\nDipublikasi : ${data.result.dipublikasi}`
+                 infomp3 = `*Musica encontrada!!!*\nTitulo : ${data.result.judul}\nAlbum : ${data.result.album}\nPublicado : ${data.result.dipublikasi}`
                 buffer = await getBuffer(data.result.thumb)
                 lagu = await getBuffer(data.result.mp3)
                 client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
@@ -959,7 +959,7 @@ async function starts() {
                 await limitAdd(sender)
                 break
 				case 'blocklist':
-					teks = 'This is list of blocked number :\n'
+					teks = 'Esta e a lista de numeros bloqueados :\n'
 					for (let block of blocked) {
 						teks += `~> @${block.split('@')[0]}\n`
 					}
@@ -1012,21 +1012,21 @@ async function starts() {
                 break
 				case 'tts':
 				   client.updatePresence(from, Presence.recording) 
-				   if (args.length < 1) return client.sendMessage(from, 'Kode bahasanya mana om?', text, {quoted: mek})
+				   if (args.length < 1) return client.sendMessage(from, 'Qual o codigo do pais?', text, {quoted: mek})
                                    if (!isRegister) return reply(mess.only.daftarB)
                                    if (isLimit(sender)) return reply(ind.limitend(pusname))
 					const gtts = require('./lib/gtts')(args[0])
-					if (args.length < 2) return client.sendMessage(from, 'Textnya mana om', text, {quoted: mek})
+					if (args.length < 2) return client.sendMessage(from, 'Onde esta o texto?', text, {quoted: mek})
 					dtt = body.slice(8)
 					ranm = getRandom('.mp3')
 					rano = getRandom('.ogg')
 					dtt.length > 600
-					? reply('Textnya kebanyakan om')
+					? reply('O texto e o principal')
 					: gtts.save(ranm, dtt, function() {
 						exec(`ffmpeg -i ${ranm} -ar 48000 -vn -c:a libopus ${rano}`, (err) => {
 							fs.unlinkSync(ranm)
 							buff = fs.readFileSync(rano)
-							if (err) return reply('Gagal om:(')
+							if (err) return reply('Falha :(')
 							client.sendMessage(from, buff, audio, {quoted: mek, ptt:true})
 							fs.unlinkSync(rano)
 						})
@@ -1038,7 +1038,7 @@ async function starts() {
 					client.updatePresence(from, Presence.composing) 
                                         if (!isRegister) return reply(mess.only.daftarB)
 					if (!isGroup) return reply(mess.only.group)
-					teks = `List admin of group *${groupMetadata.subject}*\nTotal : ${groupAdmins.length}\n\n`
+					teks = `Lista de admins *${groupMetadata.subject}*\nTotal : ${groupAdmins.length}\n\n`
 					no = 0
 					for (let admon of groupAdmins) {
 						no += 1
@@ -1076,7 +1076,7 @@ async function starts() {
 					if (args.length < 1) return
 					if (!isOwner) return reply(mess.only.ownerB)
 					prefix = args[0]
-					reply(`Prefix berhasil di ubah menjadi : ${prefix}`)
+					reply(`Prefixo alterado com sucesso para: ${prefix}`)
 					break
 				case 'meme':
                                         if (!isRegister) return reply(mess.only.daftarB)
@@ -1099,7 +1099,7 @@ async function starts() {
 					if (!isGroup) return reply(mess.only.group)
 					if (!isOwner) return reply(mess.only.ownerB)
 					client.blockUser (`${body.slice(8)}@c.us`, "add")
-					client.sendMessage(from, `perintah Diterima, memblokir ${body.slice(8)}@c.us`, text)
+					client.sendMessage(from, `Pedido recebido bloquear ${body.slice(8)}@c.us`, text)
 					break
 				case 'hilih':
 					client.updatePresence(from, Presence.composing) 
@@ -1188,12 +1188,12 @@ async function starts() {
 					break
 				case 'setppbot':
 				client.updatePresence(from, Presence.composing) 
-				if (!isQuotedImage) return reply(`Kirim gambar dengan caption ${prefix}setbotpp atau tag gambar yang sudah dikirim`)
+				if (!isQuotedImage) return reply(`Envie uma imagem com a legenda $ {prefix} setbotpp ou uma tag de imagem j� enviada`)
 					if (!isOwner) return reply(mess.only.ownerB)
 					enmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(enmedia)
 					await client.updateProfilePicture(botNumber, media)
-					reply('Makasih profile barunya😗')
+					reply('Obrigado pelo novo perfil😗')
 					break
 				case 'bc':
 					client.updatePresence(from, Presence.composing) 
@@ -1271,7 +1271,7 @@ async function starts() {
 					}, 2000)
                      setTimeout( () => {
 					client.updatePresence(from, Presence.composing) 
-					client.sendMessage(from, 'Sayonara👋', text) // ur cods
+					client.sendMessage(from, 'Adeus fiz o meu melhor mesmo assim decepcionei vcs ', text) // ur cods
 					}, 0)
                      break
 
@@ -1306,7 +1306,7 @@ async function starts() {
 				  case 'ownergroup':
                client.updatePresence(from, Presence.composing) 
               options = {
-          text: `Owner Group ini adalah : @${from.split("-")[0]}`,
+          text: `O criador do grupo  : @${from.split("-")[0]}`,
           contextInfo: { mentionedJid: [from] }
            }
            client.sendMessage(from, options, text, { quoted: mek } )
@@ -1339,18 +1339,18 @@ async function starts() {
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-					if (args.length < 1) return reply('Yang mau di add jin ya?')
-					if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
+					if (args.length < 1) return reply('kd o numero kct?')
+					if (args[0].startsWith('08')) return reply('kd o codigo do pais')
 					try {
 						num = `${args[0].replace(/ /g, '')}@s.whatsapp.net`
 						client.groupAdd(from, [num])
 					} catch (e) {
 						console.log('Error :', e)
-						reply('Gagal menambahkan target, mungkin karena di private')
+						reply('Falha ao adicionar destino, possivelmente porque e privado')
 					}
 					break
 
-				case 'kick':
+				case 'ban':
 					client.updatePresence(from, Presence.composing) 
 					if (!isGroup) return reply(mess.only.group)
 					if (!isGroupAdmins) return reply(mess.only.admin)
@@ -1358,16 +1358,16 @@ async function starts() {
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = 'Perintah di terima, mengeluarkan :\n'
+						teks = 'Pedido recebido, se lascou :\n'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
 						mentions(teks, mentioned, true)
 						client.groupRemove(from, mentioned)
 					} else {
-						mentions(`Perintah di terima, mengeluarkan : @${mentioned[0].split('@')[0]}`, mentioned, true)
+						mentions(`Pedido recebido, se lascou  : @${mentioned[0].split('@')[0]}`, mentioned, true)
 						client.groupRemove(from, mentioned)
-					client.sendMessage(mentioned, 'yahaha Lu kekick😂', text)
+					client.sendMessage(mentioned, 'hahah ja era�', text)
 					}
 					break
 				case 'exe':
@@ -1389,7 +1389,7 @@ async function starts() {
                                      if (!isRegister) return reply(mess.only.daftarB)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					linkgc = await client.groupInviteCode (from)
-					yeh = `https://chat.whatsapp.com/${linkgc}\n\nLink Group *${groupName}*`
+					yeh = `https://chat.whatsapp.com/${linkgc}\n\nLink Do Grupo *${groupName}*`
 					client.sendMessage(from, yeh, text, {quoted: mek, detectLinks: false})
 					break
                 case 'qrcode':
@@ -1418,17 +1418,18 @@ async function starts() {
 					}
 					break
 
-                      case 'bugreport':
-                     const bug = body.slice(5)
+                      case 'report':
+                     const pesan = body.slice(8)
                       if (pesan.length > 300) return client.sendMessage(from, 'Maaf Teks Terlalu Panjang, Maksimal 300 Teks', msgType.text, {quoted: mek})
                         var nomor = mek.participant
-                       teks1 = `*[REPORT]*\nNomor : @${nomor.split("@s.whatsapp.net")[0]}\nPesan : ${pesan}`
+                       const teks1 = `*[REPORT]*\nNome : @${nomor.split("@s.whatsapp.net")[0]}\nMensagem : ${pesan}`
+
                       var options = {
                          text: teks1,
                          contextInfo: {mentionedJid: [nomor]},
                      }
-                    client.sendMessage(NomerOwner, options, text, {quoted: mek})
-                    reply('Masalah telah di laporkan ke owner BOT, laporan palsu/main2 tidak akan ditanggapi.')
+                    client.sendMessage('556599071373@s.whatsapp.net', options, text, {quoted: mek})
+                    reply('Obrigado sua mensagem foi enviada para o dono do Bot.')
                     break
                case 'apakah':
                client.updatePresence(from, Presence.composing) 
@@ -1468,7 +1469,7 @@ async function starts() {
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					var nomor = mek.participant
 					const close = {
-					text: `Grup ditutup oleh admin @${nomor.split("@s.whatsapp.net")[0]}\nsekarang *hanya admin* yang dapat mengirim pesan`,
+					text: `O grupo foi fechado pelo administrador @${nomor.split("@s.whatsapp.net")[0]}\nAgora *apenas administrador* podem enviar mensagens`,
 					contextInfo: { mentionedJid: [nomor] }
 					}
 					client.groupSettingChange (from, GroupSettingChange.messageSend, true);
@@ -1481,13 +1482,13 @@ async function starts() {
 					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					open = {
-					text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,
+					text: `O grupo foi aberto pelo Admintrador @${sender.split("@")[0]}\nAgora *todos os participantes* podem enviar mensagens`,
 					contextInfo: { mentionedJid: [sender] }
 					}
 					client.groupSettingChange (from, GroupSettingChange.messageSend, false)
 					client.sendMessage(from, open, text, {quoted: mek})
 					break
-				case 'stiker':
+				case 'figu':
 				case 'sticker':
 				case 'stickergif':
 				case 'stikergif':
@@ -1563,14 +1564,14 @@ async function starts() {
 				case 'toimg':
 				    client.updatePresence(from, Presence.composing)
                                     if (!isRegister) return reply(mess.only.daftarB)
-					if (!isQuotedSticker) return reply('❌ reply stickernya um ❌')
+					if (!isQuotedSticker) return reply('Marque a figuinha ')
 					reply(mess.wait)
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await client.downloadAndSaveMediaMessage(encmedia)
 					ran = getRandom('.png')
 					exec(`ffmpeg -i ${media} ${ran}`, (err) => {
 						fs.unlinkSync(media)
-						if (err) return reply('❌ Gagal, pada saat mengkonversi sticker ke gambar ❌')
+						if (err) return reply('FALHA NA CONVERS�O')
 						buffer = fs.readFileSync(ran)
 						client.sendMessage(from, buffer, image, {quoted: mek, caption: '>//<'})
 						fs.unlinkSync(ran)
@@ -1606,14 +1607,14 @@ async function starts() {
                       client.sendMessage(from, buff, image, {quoted: mek})
                       await limitAdd(sender)
                       break
-                         case 'play':   
+                         case 'play2':   
 	          if (!isRegister) return reply(mess.only.daftarB)
                   if (isLimit(sender)) return reply(ind.limitend(pusname))
                 reply(mess.wait)
                 play = body.slice(5)
                 anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
                if (anu.error) return reply(anu.error)
-                 infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${anu.result.title}\nSource : ${anu.result.source}\nUkuran : ${anu.result.size}\n\n*TUNGGU SEBENTAR LAGI DIKIRIM MOHON JANGAN SPAM YA SAYANG*`
+                 infomp3 = `*Musica encontrada!!!*\nTitulo : ${anu.result.title}\nFonte : ${anu.result.source}\nTamanho : ${anu.result.size}\n\n*Aguarde ate que a musica seja enviada*`
                 buffer = await getBuffer(anu.result.thumbnail)
                 lagu = await getBuffer(anu.result.url_audio)
                 client.sendMessage(from, buffer, image, {quoted: mek, caption: infomp3})
@@ -1653,18 +1654,18 @@ async function starts() {
 					if (!isGroup) return reply(mess.only.group)
                                         if (!isRegister) return reply(mess.only.daftarB)
 					if (!isGroupAdmins) return reply(mess.only.Badmin)
-					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
+					if (args.length < 1) return reply('digite 1 para ativar')
 					if (Number(args[0]) === 1) {
-						if (isWelkom) return reply('fitur sudah aktif')
+						if (isWelkom) return reply('Ja esta ativo')
 						welkom.push(from)
 						fs.writeFileSync('./database/json/welkom.json', JSON.stringify(welkom))
-						reply('❬ SUCCSESS ❭ mengaktifkan fitur welcome di group ini')
-					} else if (Number(args[0]) === 0) {
+						reply('sucesso, desativei o recurso')
+					} else if (Number(args[2]) === 2) {
 						welkom.splice(from, disable)
 						fs.writeFileSync('./database/json/welkom.json', JSON.stringify(welkom))
-						reply('❬ SUCCSESS ❭ menonaktifkan fitur welcome di group ini')
+						reply('Ativo, agora passarei a dar boas vindas ')
 					} else {
-						reply('ketik 1 untuk mengaktifkan, 0 untuk menonaktifkan fitur')
+						reply('digite 1 para ativar, 0 para desativar o recurso')
 					}
                                         break
                                 case 'fakta':
@@ -1887,7 +1888,7 @@ async function starts() {
                 const userXp = getLevelingXp(sender)
                 if (userLevel === undefined && userXp === undefined) return reply(mess.levelnol)
                 sem = sender.replace('@s.whatsapp.net','')
-                resul = `◪ *LEVEL*\n  ├─ ❏ *Name* : ${sem}\n  ├─ ❏ *User XP* : ${userXp}\n  └─ ❏ *User Level* : ${userLevel}`
+                resul = ` *LEVEL*\n    *Name* : ${sem}\n    *User XP* : ${userXp}\n    *User Level* : ${userLevel}`
                client.sendMessage(from, resul, text, { quoted: mek})
                 .catch(async (err) => {
                         console.error(err)
@@ -2328,7 +2329,7 @@ async function starts() {
                                         if ( checkATMuser(sender) >= total ) {
                                                 confirmATM(sender, total)
                                                 bayarLimit(sender, payout)
-                                                await reply(`*「 PEMBAYARANBERHASIL 」*\n\n*pengirim* : Admin\n*penerima* : ${pushname}\n*nominal pembelian* : ${payout} \n *harga limit* : ${koinPerlimit}/limit\n *sisa uang mu* : ${checkATMuser(sender)}\n\nproses berhasil dengan nomer pembayaran \n${createSerial(15)}`)
+                                                await reply(`* PEMBAYARANBERHASIL *\n\n*pengirim* : Admin\n*penerima* : ${pushname}\n*nominal pembelian* : ${payout} \n *harga limit* : ${koinPerlimit}/limit\n *sisa uang mu* : ${checkATMuser(sender)}\n\nproses berhasil dengan nomer pembayaran \n${createSerial(15)}`)
                                         }
                                         break
                                 case 'limit':
@@ -2343,17 +2344,17 @@ async function starts() {
                                                 if (isEventon) return reply('*SUDAH AKTIF* !!!')
                                                 event.push(from)
                                                 fs.writeFileSync('./database/json/event.json', JSON.stringify(event))
-                                                reply('*❬ SUCCSESS ❭ Mengaktifkan EVENT di group ini*')
+                                                reply('* SUCCSESS  Mengaktifkan EVENT di group ini*')
                                         } else if (Number(args[0]) === 0) {
                                                 event.splice(from, 1)
                                                 fs.writeFileSync('./database/json/event.json', JSON.stringify(event))
-                                                reply('*❬ SUCCSESS ❭ Menonaktifkan EVENT di group ini*')
+                                                reply('* SUCCSESS  Menonaktifkan EVENT di group ini*')
                                         } else {
                                                 reply(ind.satukos())
                                         }
                                         break
                                 case 'register':
-                                        if (isRegister) return  reply(`「 SUDAH REGISTER 」 \n\nKakak dah register kak...`)
+                                        if (isRegister) return  reply(` SUDAH REGISTER  \n\nKakak dah register kak...`)
                                         if (!q.includes('|')) return  reply(ind.wrongf())
                                         const namaUser = q.substring(0, q.indexOf('|') - 0)
                                         const umurUser = q.substring(q.lastIndexOf('|') + 1)
@@ -2441,11 +2442,11 @@ async function starts() {
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
                                         anu = await fetchJson(`https://mnazria.herokuapp.com/api/check?ip=${ipnya}`, {method: 'get'})
                                         lang = anu.location.languages[0]
-                                        teks = `◪ *IP* \n  │\n  ├─ ❏ IP : ${anu.ip} \n  ├─ ❏ City : ${anu.city} \n  ├─ ❏ Continent Code : ${anu.continent_code} \n  ├─ ❏ Continent Name : ${anu.continent_name} \n  ├─ ❏ Country Code : ${anu.country_code} \n  ├─ ❏ Country Name : ${anu.country_name} \n  ├─ ❏ Latitude : ${anu.latitude} \n  ├─ ❏ Calling Code : ${anu.location.calling_code} \n  ├─ ❏ Capital : ${anu.location.capital} \n  ├─ ❏ Country Flag : ${anu.location.country_flag} \n  ├─ ❏ Country Flag Emoji : ${anu.location.country_flag_emoji} \n  ├─ ❏ Country Flag Emoji Unicode : ${anu.location.country_flag_emoji_unicode} \n  ├─ ❏ Geoname ID : ${anu.location.geoname_id} \n  ├─ ❏ Languages : ${lang.code} , ${lang.name} , ${lang.native} \n  ├─ ❏ Longitude : ${anu.longitude} \n  ├─ ❏ Region Code : ${anu.region_code} \n  ├─ ❏ Region Name : ${anu.region_name} \n  ├─ ❏ Type : ${anu.type} \n  └─ ❏ Zip : ${anu.zip} `
+                                        teks = ` *IP* \n  \n    IP : ${anu.ip} \n    City : ${anu.city} \n    Continent Code : ${anu.continent_code} \n    Continent Name : ${anu.continent_name} \n    Country Code : ${anu.country_code} \n    Country Name : ${anu.country_name} \n    Latitude : ${anu.latitude} \n    Calling Code : ${anu.location.calling_code} \n    Capital : ${anu.location.capital} \n    Country Flag : ${anu.location.country_flag} \n    Country Flag Emoji : ${anu.location.country_flag_emoji} \n    Country Flag Emoji Unicode : ${anu.location.country_flag_emoji_unicode} \n    Geoname ID : ${anu.location.geoname_id} \n    Languages : ${lang.code} , ${lang.name} , ${lang.native} \n    Longitude : ${anu.longitude} \n    Region Code : ${anu.region_code} \n    Region Name : ${anu.region_name} \n    Type : ${anu.type} \n    Zip : ${anu.zip} `
                                         client.sendMessage(from, teks, text)
                                         await limitAdd(sender)
                                         break
-                                case 'happymod':
+                                case 'appmod':
                                         toby = body.slice(10)
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
@@ -2453,7 +2454,7 @@ async function starts() {
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${toby}&apikey=BotWeA`, {method: 'get'})
                                         hepi = anu.result[0]
                                         buffer = await getBuffer(hepi.image)
-                                        teks = `◪ *HAPPY MOD* \n  │\n  ├─ ❏ Title : ${hepi.title} \n  ├─ ❏ Size : ${hepi.size} \n  ├─ ❏ Version : ${hepi.version} \n  ├─ ❏ Root : ${hepi.root} \n  ├─ ❏ Purchase : ${hepi.purchase} \n  ├─ ❏ Price : ${hepi.price} \n  ├─ ❏ Link : ${hepi.link} \n  └─ ❏ Download : ${hepi.download} `
+                                        teks = ` *APP MOD* \n  \n    Titulo : ${hepi.title} \n    Tamanho : ${hepi.size} \n    Versao : ${hepi.version} \n    Root : ${hepi.root} \n    Compra : ${hepi.purchase} \n    Pre�o : ${hepi.price} \n    Link : ${hepi.link} \n    Download : ${hepi.download} `
                                         client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
                                         await limitAdd(sender)
                                         break
@@ -2466,7 +2467,7 @@ async function starts() {
                                         if (args.length < 1) return reply(`Channel TV nya apa kak? \nContoh: ${prefix}jadwalTV mnctv`)
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
                                         anu = await fetchJson(`https://mhankbarbar.tech/api/jdtv?ch=${mb}&apiKey=${BarBarKey}`, {method: 'get'})
-                                        teks = `◪ *JADWAL TV* \n  │\n  └─ ❏ Channel : ${mb} \n◪ *JADWAL* \n${anu.result} `
+                                        teks = ` *JADWAL TV* \n  \n    Channel : ${mb} \n *JADWAL* \n${anu.result} `
                                         client.sendMessage(from, teks, text)
                                         await limitAdd(sender)
                                         break
