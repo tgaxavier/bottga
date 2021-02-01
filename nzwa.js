@@ -367,7 +367,7 @@ async function starts() {
                         const q = args.join(' ')
 
 			mess = {
-				wait: '❬ AGUARDE ❭ um instante⏳',
+				wait: '❬ AGUARDE UM INSTANTE ⏳❭',
 				success: ' Berhasil ',
                                 levelon: '   *Ativado leveling*',
 				leveloff: '  X   *desativado leveling*',
@@ -378,11 +378,11 @@ async function starts() {
 					Iv: ' Link invalido '
 				},
 				only: {
-					group: '[❗] Este comando so pode ser usado em grupos! ',
+					group: '[❗] Este comando so pode ser usado em grupos! ',
 					ownerG: '[❗] Este comando so pode ser usado pelo Admisnitrador do grupo! ',
 					ownerB: '[❗] Este comando so pode ser usado pelo proprietario do bot! ',
 					admin: '[❗] Este comando so pode ser usado pelo proprietario do bot! ',
-					Badmin: '[❗] Este comando so pode ser usado quando o bot se torna um administrador! ',
+					Badmin: '[❗] Este comando so pode ser usado quando o bot se torna um administrador! ',
                                         daftarB: `──「 Registre-se 」──\nOla membro comum !\nRegistre-se no banco de dados, \n\nComando : ${prefix}register nome|idade\nexemplo : ${prefix}register guilherme|27`,
 				}
 			}
@@ -686,14 +686,14 @@ async function starts() {
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di promote!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = 'Pedido recebido, adicionando como administrador :\n'
+						teks = 'Pedido recebido, adicionado como administrador :\n'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
 						mentions(teks, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					} else {
-						mentions(`Pedido recebido, adicionando posi��o como administrador : @${mentioned[0].split('@')[0]}`, mentioned, true)
+						mentions(`Pedido recebido, adicionado como administrador : @${mentioned[0].split('@')[0]}`, mentioned, true)
 						client.groupMakeAdmin(from, mentioned)
 					}
 					break
@@ -701,7 +701,7 @@ async function starts() {
 				  case 'wame':
   client.updatePresence(from, Presence.composing) 
       options = {
-          text: ` *LINK WHATSAPP* \n\n_Pedido Por_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nSeu link do whatsapp : *wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Ou ( / )*\n*api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
+          text: `「  *LINK WHATSAPP* 」\n\n_Pedido Por_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nSeu link do whatsapp : *wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Ou ( / )*\n*api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
           contextInfo: { mentionedJid: [sender] }
     }
     client.sendMessage(from, options, text, { quoted: mek } )
@@ -1179,9 +1179,9 @@ async function starts() {
 						reply('')
 					} else {
 						for (let _ of anu) {
-							sendMess(_.jid, `*「 BROADCAST 」*\n\n${body.slice(4)}`)
+							sendMess(_.jid, `*「 TRANSMISSÃO 」*\n\n${body.slice(4)}`)
 						}
-						reply('Suksess broadcast')
+						reply('Sucesso Na Transmissão')
 					}
 					break
 					case 'bcgc':
@@ -1199,7 +1199,7 @@ async function starts() {
 						for (let _ of groupMembers) {
 							sendMess(_.jid, `*「 BC GROUP 」*\n*Group* : ${groupName}\n\n${body.slice(6)}`)
 						}
-						reply('Suksess broadcast group')
+						reply('Sucesso Na Transmissão do gripo')
 					}
 					break
                      case 'leave':
@@ -1297,16 +1297,16 @@ async function starts() {
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = 'Pedido recebido, se lascou :\n'
+						teks = 'Pedido recebido, se lascou :\n'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
 						mentions(teks, mentioned, true)
 						client.groupRemove(from, mentioned)
 					} else {
-						mentions(`Pedido recebido, se lascou  : @${mentioned[0].split('@')[0]}`, mentioned, true)
+						mentions(`Pedido recebido, se lascou : @${mentioned[0].split('@')[0]}`, mentioned, true)
 						client.groupRemove(from, mentioned)
-					client.sendMessage(mentioned, 'hahah ja era�', text)
+					client.sendMessage(mentioned, 'hahah ja era', text)
 					}
 					break
 				case 'exe':
@@ -1408,7 +1408,7 @@ async function starts() {
 					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					var nomor = mek.participant
 					const close = {
-					text: `O grupo foi fechado pelo administrador @${nomor.split("@s.whatsapp.net")[0]}\nAgora *apenas administrador* podem enviar mensagens`,
+					text: `O grupo foi fechado pelo administrador @${nomor.split("@s.whatsapp.net")[0]}\nAgora *apenas administrador* pode enviar mensagens`,
 					contextInfo: { mentionedJid: [nomor] }
 					}
 					client.groupSettingChange (from, GroupSettingChange.messageSend, true);
@@ -1584,11 +1584,11 @@ async function starts() {
 						if (isWelkom) return reply('Ja esta ativo')
 						welkom.push(from)
 						fs.writeFileSync('./database/json/welkom.json', JSON.stringify(welkom))
-						reply('sucesso, desativei o recurso')
-					} else if (Number(args[2]) === 2) {
+						reply('❮ Ativo, agora passarei a dar boas vindas ❯😁')
+					} else if (Number(args[0]) === 0) {
 						welkom.splice(from, disable)
 						fs.writeFileSync('./database/json/welkom.json', JSON.stringify(welkom))
-						reply('Ativo, agora passarei a dar boas vindas ')
+						reply('recurso desativado')
 					} else {
 						reply('digite 1 para ativar, 0 para desativar o recurso')
 					}
@@ -1774,7 +1774,7 @@ async function starts() {
                 const userXp = getLevelingXp(sender)
                 if (userLevel === undefined && userXp === undefined) return reply(mess.levelnol)
                 sem = sender.replace('@s.whatsapp.net','')
-                resul = ` *LEVEL*\n    *Name* : ${sem}\n    *User XP* : ${userXp}\n    *User Level* : ${userLevel}`
+                resul = `NIVEL*\n  *Nome* : ${sem}\n  *User XP* : ${userXp}\n   *User Level* : ${userLevel}`
                client.sendMessage(from, resul, text, { quoted: mek})
                 .catch(async (err) => {
                         console.error(err)
@@ -1900,7 +1900,7 @@ async function starts() {
 					for (let _ of anu) {
 						client.deleteChat(_.jid)
 					}
-					reply('Sukses delete all chat :)')
+					reply('Sucesso limparei os chats :)')
 					break
 				case 'simi':
 					if (args.length < 1) return reply('Textnya mana um?')
@@ -1956,13 +1956,20 @@ async function starts() {
                                         reply(anu.result)
                                         await limitAdd(sender)
                                         break
+                                        case 'groupinfo':
+                client.updatePresence(from, Presence.composing)
+                if (!isGroup) return reply(mess.only.group)
+                ppUrl = await client.getProfilePicture(from) // leave empty to get your own
+			    buffer = await getBuffer(ppUrl)
+		        client.sendMessage(from, buffer, image, {quoted: mek, caption: `*NAME* : ${groupName}\n*MEMBER* : ${groupMembers.length}\n*ADMIN* : ${groupAdmins.length}\n*DESK* : ${groupDesc}`})
+                break
                                 case 'bal':
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         const kantong = checkATMuser(sender)
                                         reply(ind.uangkau(pushname, sender, kantong))
                                         break
                                 case 'buylimit':
-                                        if (args.length < 1) return reply('Berapa limit yang mau di beli kak? Pastiin uang kakak cukup juga kak! \n\nCara cek uang: ${prefix}bal')
+                                        if (args.length < 1) return reply('Quantos limites voce quer comprar, Certifique-se de ter dinheiro suficiente! \n\nCara cek uang: ${prefix}bal')
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         payout = body.slice(10)
                                         const koinPerlimit = 1000
@@ -1971,7 +1978,7 @@ async function starts() {
                                         if ( checkATMuser(sender) >= total ) {
                                                 confirmATM(sender, total)
                                                 bayarLimit(sender, payout)
-                                                await reply(`* PEMBAYARANBERHASIL *\n\n*pengirim* : Admin\n*penerima* : ${pushname}\n*nominal pembelian* : ${payout} \n *harga limit* : ${koinPerlimit}/limit\n *sisa uang mu* : ${checkATMuser(sender)}\n\nproses berhasil dengan nomer pembayaran \n${createSerial(15)}`)
+                                                await reply(`*「COMPROVANTE DE PAGAMENTO」*\n\n*rlRemetente* : Admin\n*Recebedor* : ${pushname}\n*Compra* : ${payout} \n *limite de preco* : ${koinPerlimit}/limite\n *o resto do seu dinheiro* : ${checkATMuser(sender)}\n\nO processo foi bem sucedido com o número do pagamento \n${createSerial(15)}`)
                                         }
                                         break
                                 case 'limit':
@@ -1996,7 +2003,7 @@ async function starts() {
                                         }
                                         break
                                 case 'register':
-                                        if (isRegister) return  reply(` SUDAH REGISTER  \n\nKakak dah register kak...`)
+                                        if (isRegister) return  reply(`「Registrado 」\n\nEu registrei voce...`)
                                         if (!q.includes('|')) return  reply(ind.wrongf())
                                         const namaUser = q.substring(0, q.indexOf('|') - 0)
                                         const umurUser = q.substring(q.lastIndexOf('|') + 1)
@@ -2019,33 +2026,33 @@ async function starts() {
                                 case 'mining':
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(ind.limitend(pushname))
-                                        if (!isEventon) return reply(`maaf ${pushname} event mining tidak di aktifkan oleh owner`)
+                                        if (!isEventon) return reply(`maaf ${pushname} a mineraçao de eventos nao e ativada pelo proprietario`)
                                         if (isOwner) {
                                                 const one = 999999999
                                                 addLevelingXp(sender, one)
                                                 addLevelingLevel(sender, 99)
-                                                reply(`karena anda owner kami dari team bot mengirim ${one}Xp untuk anda`)
+                                                reply(`porque voce e da equipe do bot te envio ${one}Xp para voce`)
                                         } else {
                                                 const mining = Math.ceil(Math.random() * 10000)
                                                 addLevelingXp(sender, mining)
-                                                await reply(`*selamat* ${pushname} kamu mendapatkan *${mining}Xp*`)
+                                                await reply(`*Parabens* ${pushname} Voce entendeu *${mining}Xp*`)
                                         }
                                         await limitAdd(sender)
                                         break
-                                 /*case 'setname':
-                                        if (!isGroup) return reply(ind.groupo())
-			                if (!isGroupAdmins) return reply(ind.admin())
-			                if (!isBotGroupAdmins) return reply(ind.badmin())
-                                        client.groupUpdateSubject(from, `${body.slice(9)}`)
-                                        client.sendMessage(from, 'Succes, Ganti Nama Grup', text, {quoted: mek})
-				        break
-                                case 'setdesc':
-                                        if (!isGroup) return reply(ind.groupo())
-			                if (!isGroupAdmins) return reply(ind.admin())
-			         	if (!isBotGroupAdmins) return reply(ind.badmin())
-                                        client.groupUpdateDescription(from, `${body.slice(9)}`)
-                                        client.sendMessage(from, 'Succes, Ganti Deskripsi Grup', text, {quoted: mek})
-					break*/
+                                 case 'setname':
+                if (!isGroup) return reply(mess.only.group)
+			    if (!isGroupAdmins) return reply(mess.only.admin)
+				if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+                client.groupUpdateSubject(from, `${body.slice(9)}`)
+                client.sendMessage(from, 'Succeso, Nome do Grupo Alterado', text, {quoted: mek})
+                break
+                case 'setdesc':
+                if (!isGroup) return reply(mess.only.group)
+			    if (!isGroupAdmins) return reply(mess.only.admin)
+				if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+                client.groupUpdateDescription(from, `${body.slice(9)}`)
+                client.sendMessage(from, 'Succeso, mudou as regras do grupo', text, {quoted: mek})
+                break
                                 case 'translate':
                                         aruga = body.slice(10)
                                         lang = aruga.split("|")[0];
@@ -2088,7 +2095,7 @@ async function starts() {
                                         client.sendMessage(from, teks, text)
                                         await limitAdd(sender)
                                         break
-                                case 'happymod':
+                                case 'appmod':
                                         toby = body.slice(10)
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
@@ -2096,7 +2103,7 @@ async function starts() {
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${toby}&apikey=BotWeA`, {method: 'get'})
                                         hepi = anu.result[0]
                                         buffer = await getBuffer(hepi.image)
-                                        teks = `◪ *HAPPY MOD* \n  │\n  ├─ ❏ Title : ${hepi.title} \n  ├─ ❏ Size : ${hepi.size} \n  ├─ ❏ Version : ${hepi.version} \n  ├─ ❏ Root : ${hepi.root} \n  ├─ ❏ Purchase : ${hepi.purchase} \n  ├─ ❏ Price : ${hepi.price} \n  ├─ ❏ Link : ${hepi.link} \n  └─ ❏ Download : ${hepi.download} `
+                                        teks = `◪ *APP MOD* \n  │\n  ├─ ❏ Title : ${hepi.title} \n  ├─ ❏ Size : ${hepi.size} \n  ├─ ❏ Version : ${hepi.version} \n  ├─ ❏ Root : ${hepi.root} \n  ├─ ❏ Purchase : ${hepi.purchase} \n  ├─ ❏ Price : ${hepi.price} \n  ├─ ❏ Link : ${hepi.link} \n  └─ ❏ Download : ${hepi.download} `
                                         client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
                                         await limitAdd(sender)
                                         break
