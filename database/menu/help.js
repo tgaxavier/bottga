@@ -2,43 +2,46 @@ const help = (pushname, prefix, botName, ownerName, reqXp, uangku) => {
         return `
 ┏ *〈 ${botName} 〉*
 ╿
-┷┯ *〈 USER INFO 〉*
+┷┯ *〈 Informações 〉*
    ╽
-   ┠≽ *Name* : ${pushname}
+   ┠≽ *Nome* : ${pushname}
    ┠≽ *XP* : ${reqXp}
-   ┠≽ *Money* : ${uangku}
-   ┠≽ *Registered : ✔️
+   ┠≽ *Dinheiro* : ${uangku}
+   ┠≽ *Registrado* : ✔️
    ╿
 ┯┷ *〈 BOT INFO 〉*
 ╽
 ┠≽ *Prefix* : 「  ${prefix}  」
-┠≽ *Creator* : ${ownerName}
+┠≽ *Criador* : ${ownerName}
 ┠≽ *Version* : 0.0.4
-╿
+┠──────────────╼
 ┷┯ *〈 MENU 〉*
-   ┠≽ *${prefix}logomakermenu*
-   ┠≽ *${prefix}imagemakermenu*
-   ┠≽ *${prefix}stickermakermenu*
-   ┠≽ *${prefix}searchmenu*
-   ┠≽ *${prefix}educationmenu*
-   ┠≽ *${prefix}kerangmenu*
-   ┠≽ *${prefix}downloadermenu*
-   ┠≽ *${prefix}mememenu*
-   ┠≽ *${prefix}groupmenu*
-   ┠≽ *${prefix}soundmenu*
-   ┠≽ *${prefix}musicmenu*
-   ┠≽ *${prefix}islammenu*
-   ┠≽ *${prefix}stalkmenu*
-   ┠≽ *${prefix}wibumenu*
-   ┠≽ *${prefix}18+menu*
-   ┠≽ *${prefix}funmenu*
-   ┠≽ *${prefix}todmenu*
-   ┠≽ *${prefix}informationmenu*
-   ┠≽ *${prefix}stayonscreenmenu*
-   ┠≽ *${prefix}xpmenu*
-   ┠≽ *${prefix}limitmenu*
-   ┠≽ *${prefix}ownermenu*
-   ┠≽ *${prefix}othermenu*
+   ┠≽ *${prefix}sticker*
+   ┠≽ *${prefix}linkgc*
+   ┠≽ *${prefix}linkme*
+   ┠≽ *${prefix}ban*
+   ┠≽ *${prefix}add*
+   ┠≽ *${prefix}welcome*
+   ┠≽ *${prefix}promover*
+   ┠≽ *${prefix}demote*
+   ┠──────────────╼
+   ┠≽ *${prefix}appmod
+   ┠≽ *${prefix}dono*
+   ┠≽ *${prefix}block*
+   ┠≽ *${prefix}unblock*
+   ┠≽ *${prefix}blocklist*
+   ┠≽ *${prefix}tts*
+   ┠≽ *${prefix}adminlist*
+   ┠──────────────╼
+   ┠≽ *${prefix}marcar*
+   ┠≽ *${prefix}leave*
+   ┠≽ *${prefix}report*
+   ┠≽ *${prefix}bebado*
+   ┠≽ *${prefix}opengc*
+   ┠≽ *${prefix}closegc*
+   ┠≽ *${prefix}play1*
+   ┠≽ *${prefix}play2*
+   ┠≽ *${prefix}ytmp4*
    ╿ *${ownerName}*,
    ╰╼≽ *Developer © ${botName}`
 }
