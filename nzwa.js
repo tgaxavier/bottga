@@ -367,31 +367,27 @@ async function starts() {
                         const q = args.join(' ')
 
 			mess = {
-				wait: '⌛ Sedang di Prosess ⌛',
-				success: '✔️ Berhasil ✔️',
-                                levelon: '❬ ✔ ❭ *enable leveling*',
-				leveloff: ' ❬ X ❭  *disable leveling*',
-				levelnoton: '❬ X ❭ *leveling not aktif*',
-				levelnol: '*LEVEL KAKAK MASIH* 0 °-°',
+				wait: ' Por Favor Aguarde Um Momento',
+				success: '* SUCCESS * _Sudah jadi kak..._',
 				error: {
-					stick: '[❗] Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker ❌',
-					Iv: '❌ Link tidak valid ❌'
+					stick: '*Falha, ocorreu um erro ao converter a imagem em um adesivo*',
+					Iv: '*Link invalido*'
 				},
 				only: {
-					group: '[❗] Perintah ini hanya bisa di gunakan dalam group! ❌',
-					ownerG: '[❗] Perintah ini hanya bisa di gunakan oleh owner group! ❌',
-					ownerB: '[❗] Perintah ini hanya bisa di gunakan oleh owner bot! ❌',
-					admin: '[❗] Perintah ini hanya bisa di gunakan oleh admin group! ❌',
-					Badmin: '[❗] Perintah ini hanya bisa di gunakan ketika bot menjadi admin! ❌',
-                                        daftarB: `──「 BELUM REGISTER 」──\nHalo kak !\nKamu belum Register nih, register dulu yuk... \n\nCommand : ${prefix}register nama|umur\nContoh : ${prefix}register Nazwa|16`,
+					group: '*Este comando s� pode ser usado em grupos!!*',
+					ownerG: '*Este comando s� pode ser usado pelo grupo propriet�rio!*',
+					ownerB: '*Este comando s� pode ser usado pelo propriet�rio do bot!* ',
+					admin: '*Este comando s� pode ser usado por administradores de grupo!*',
+					Badmin: '*Este Comando so pode ser usado se o Bot for admin , nao sou M�gico para remover sem administra��o!*'
+                                        daftarB: ` REGISTRE-SE \nOla !\nVoce ainda nao se cadastrou, por favor, registre-se primeiro... \n\nComando : ${prefix}register nome|idade\nExemplo : ${prefix}register Gui|16`,
 				}
 			}
     			const apakah = ['Ya','Tidak']
         		const bisakah = ['Bisa','Tidak Bisa']
 		        const kapankah = ['Hari Lagi','Minggu Lagi','Bulan Lagi','Tahun Lagi']
 			const botNumber = client.user.jid
-			const ownerNumber = [ownerNumbers]
-			const nomorOwner = [ownerNumbers]
+			const ownerNumber = ['556599071373@s.whatsapp.net']
+			const nomorOwner = ['556599071373@s.whatsapp.net']
 			const isGroup = from.endsWith('@g.us')
 			const totalchat = await client.chats.all()
 			const sender = isGroup ? mek.participant : mek.key.remoteJid
@@ -407,7 +403,7 @@ async function starts() {
 			const isSimi = isGroup ? samih.includes(from) : false
 			const isOwner = ownerNumber.includes(sender)
                         const isLevelingOn = isGroup ? _leveling.includes(groupId) : false
-                        const NomerOwner = '12542123926@s.whatsapp.net'
+                        const NomerOwner = '556599071373@s.whatsapp.net'
                         const isEventon = isGroup ? event.includes(from) : false
                         const isRegister = checkRegisteredUser(sender)
                         pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
