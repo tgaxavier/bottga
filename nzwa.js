@@ -2084,11 +2084,11 @@ async function starts() {
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
                                         anu = await fetchJson(`https://mnazria.herokuapp.com/api/check?ip=${ipnya}`, {method: 'get'})
                                         lang = anu.location.languages[0]
-                                        teks = ` *IP* \n  \n    IP : ${anu.ip} \n    City : ${anu.city} \n    Continent Code : ${anu.continent_code} \n    Continent Name : ${anu.continent_name} \n    Country Code : ${anu.country_code} \n    Country Name : ${anu.country_name} \n    Latitude : ${anu.latitude} \n    Calling Code : ${anu.location.calling_code} \n    Capital : ${anu.location.capital} \n    Country Flag : ${anu.location.country_flag} \n    Country Flag Emoji : ${anu.location.country_flag_emoji} \n    Country Flag Emoji Unicode : ${anu.location.country_flag_emoji_unicode} \n    Geoname ID : ${anu.location.geoname_id} \n    Languages : ${lang.code} , ${lang.name} , ${lang.native} \n    Longitude : ${anu.longitude} \n    Region Code : ${anu.region_code} \n    Region Name : ${anu.region_name} \n    Type : ${anu.type} \n    Zip : ${anu.zip} `
+                                        teks = `◪ *IP* \n  │\n  ├─ ❏ IP : ${anu.ip} \n  ├─ ❏ City : ${anu.city} \n  ├─ ❏ Continent Code : ${anu.continent_code} \n  ├─ ❏ Continent Name : ${anu.continent_name} \n  ├─ ❏ Country Code : ${anu.country_code} \n  ├─ ❏ Country Name : ${anu.country_name} \n  ├─ ❏ Latitude : ${anu.latitude} \n  ├─ ❏ Calling Code : ${anu.location.calling_code} \n  ├─ ❏ Capital : ${anu.location.capital} \n  ├─ ❏ Country Flag : ${anu.location.country_flag} \n  ├─ ❏ Country Flag Emoji : ${anu.location.country_flag_emoji} \n  ├─ ❏ Country Flag Emoji Unicode : ${anu.location.country_flag_emoji_unicode} \n  ├─ ❏ Geoname ID : ${anu.location.geoname_id} \n  ├─ ❏ Languages : ${lang.code} , ${lang.name} , ${lang.native} \n  ├─ ❏ Longitude : ${anu.longitude} \n  ├─ ❏ Region Code : ${anu.region_code} \n  ├─ ❏ Region Name : ${anu.region_name} \n  ├─ ❏ Type : ${anu.type} \n  └─ ❏ Zip : ${anu.zip} `
                                         client.sendMessage(from, teks, text)
                                         await limitAdd(sender)
                                         break
-                                case 'appmod':
+                                case 'happymod':
                                         toby = body.slice(10)
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
@@ -2096,7 +2096,7 @@ async function starts() {
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${toby}&apikey=BotWeA`, {method: 'get'})
                                         hepi = anu.result[0]
                                         buffer = await getBuffer(hepi.image)
-                                        teks = ` *APP MOD* \n  \n    Titulo : ${hepi.title} \n    Tamanho : ${hepi.size} \n    Versao : ${hepi.version} \n    Root : ${hepi.root} \n    Compra : ${hepi.purchase} \n    Pre�o : ${hepi.price} \n    Link : ${hepi.link} \n    Download : ${hepi.download} `
+                                        teks = `◪ *HAPPY MOD* \n  │\n  ├─ ❏ Title : ${hepi.title} \n  ├─ ❏ Size : ${hepi.size} \n  ├─ ❏ Version : ${hepi.version} \n  ├─ ❏ Root : ${hepi.root} \n  ├─ ❏ Purchase : ${hepi.purchase} \n  ├─ ❏ Price : ${hepi.price} \n  ├─ ❏ Link : ${hepi.link} \n  └─ ❏ Download : ${hepi.download} `
                                         client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
                                         await limitAdd(sender)
                                         break
@@ -2109,7 +2109,7 @@ async function starts() {
                                         if (args.length < 1) return reply(`Channel TV nya apa kak? \nContoh: ${prefix}jadwalTV mnctv`)
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
                                         anu = await fetchJson(`https://mhankbarbar.tech/api/jdtv?ch=${mb}&apiKey=${BarBarKey}`, {method: 'get'})
-                                        teks = ` *JADWAL TV* \n  \n    Channel : ${mb} \n *JADWAL* \n${anu.result} `
+                                        teks = `◪ *JADWAL TV* \n  │\n  └─ ❏ Channel : ${mb} \n◪ *JADWAL* \n${anu.result} `
                                         client.sendMessage(from, teks, text)
                                         await limitAdd(sender)
                                         break
