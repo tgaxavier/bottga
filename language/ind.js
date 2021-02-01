@@ -1,9 +1,9 @@
 exports.noregis = () => {
-        return `*「 BELUM REGISTER 」*\n\n*cara register ${prefix}register nama|umur* \n*Contoh: ${prefix}register Nazwa|16*`
+        return `*「 Registre-se 」*\n\n*Como registrar ${prefix}register nome|idade* \n*Exemplo: ${prefix}register Gui|27*`
 }
 
 exports.rediregis = () => {
-        return `*「 SUDAH REGISTER 」*\n\n*kamu sudah register di database bot*`
+        return `*「 Ja registrado」*\n\n*Você já está registrado no banco de dados do bot*`
 }
 
 exports.wrongf = () => {
@@ -15,37 +15,37 @@ exports.clears = () => {
 }
 
 exports.pc = () => {
-        return`*「 REGISTRASI 」*\n\nuntuk mengetahui apa kamu sudah terdaftar silahkah check message yang saya kirim \n\nNOTE:\n*jika kamu belum mendapatkan pesan. berarti kamu belum menyimpan nomer bot*`
+        return`*「 REGISTRASI 」*\n\nPara saber se você se cadastrou, verifique a mensagem que enviei \n\nNOTE:\n*se você não entendeu a mensagem. significa que você não salvou o número do seu bot*`
 }
 
 exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
-        return`*「 DATA REGISTER 」*\n\nkamu sudah terdaftar dengan data \n\n◪ *DATA* \n  │ \n  ├─ ❏ Name : ${namaUser} \n  ├─ ❏ Number : wa.me/${sender.split("@")[0]} \n  ├─ ❏ Age : ${umurUser} \n  ├─ ❏ Register Time : ${time} \n  │ \n └─ ❏ NS : ${serialUser} \n\n ❏ NOTE : \n JANGAN SAMPAI LUPA NOMOR INI KARENA INI PENTING:v`
+        return`*「  CADASTRADO 」*\n\nCadrasto efetuado com sucesso \n\n┠≽ *DATA* \n  │ \n  ╰╼≽ ❏ Nome : ${namaUser} \n  ╰╼≽ ❏ Numero : wa.me/${sender.split("@")[0]} \n  ╰╼≽ ❏ idade : ${umurUser} \n  ╰╼≽ ❏ Registrado dia : ${time} \n  │ \n ╰╼≽ ❏ NS : ${serialUser} \n\n ❏ NOTA : \n NÃO ESQUEÇA ESTE NÚMERO PORQUE ISTO É IMPORTANTE`
 }
 
 exports.cmdnf = (prefix, command) => {
-        return`command *${prefix}${command}* tidak di temukan\coba tulis *${prefix}menu*`
+        return`command *${prefix}${command}* Nao encontrado\Tente escrever *${prefix}menu*`
 }
 
 exports.owneresce = (pushname) => {
-        return`*maaf tapi ${pushname} bukan owner script*`
+        return`*Desculpe, mas ${pushname} não o script do dono*`
 }
 
 exports.limitend = (pushname) => {
-        return`*maaf ${pushname} limit hari ini habis*\n*limit di reset setiap jam 24:00*`
+        return`*Desculpa ${pushname} Seu Limite Acabou*\n*o limite é zerado a cada hora 24:00*`
 }
 
 exports.limitcount = (limitCounts) => {
         return`
-*「 LIMIT COUNT 」*
-sisa limit anda : ${limitCounts}
+*「 LIMITE CONTA 」*
+o resto do seu limite : ${limitCounts}
 
-NOTE : untuk mendapatkan limit. bisa lewat naik level atau buylimit`
+NOTE : para chegar ao limite. pode passar de nível ou limite de capacidade`
 }
 
 exports.satukos = () => {
-        return`*Tambah parameter 1/enable atau 0/disable`
+        return`*Adicione o parâmetro 1/habilitar ou 0/desabilitar`
 }
 
 exports.uangkau = (pushname, sender, uangkau) => {
-        return`◪ *ATM*\n  ❏ *Nama* : ${pushname}\n  ❏ *Nomer* : ${sender.split("@")[0]}\n  ❏ *Uang* : ${uangkau}`
+        return`┠≽ *ATM*\n┠≽ *Nome* : ${pushname}\n  ┠≽ *Numero* : ${sender.split("@")[0]}\n  ┠≽ *Gold* : ${uangkau}`
 }
