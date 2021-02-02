@@ -25,7 +25,7 @@ const help = (pushname, prefix, botName, ownerName, reqXp, uangku) => {
    ┠≽ *${prefix}promover*
    ┠≽ *${prefix}demote*
    ┠──────────────╼
-   ┠≽ *${prefix}appmod
+   ┠≽ *${prefix}appmod*
    ┠≽ *${prefix}dono*
    ┠≽ *${prefix}block*
    ┠≽ *${prefix}unblock*
