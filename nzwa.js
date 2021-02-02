@@ -653,7 +653,7 @@ async function starts() {
 						mentions(teks, mentioned, true)
 						client.groupDemoteAdmin(from, mentioned)
 					} else {
-						mentions(`𝐏𝐞𝐫𝐢𝐧𝐭𝐚𝐡 𝐝𝐢𝐭𝐞𝐫𝐢𝐦𝐚, 𝐦𝐞𝐧𝐮𝐫𝐮𝐧𝐤𝐚𝐧 @${mentioned[0].split('@')[0]}\n 𝐣𝐚𝐝𝐢 𝐚𝐝𝐦𝐢𝐧 𝐠𝐫𝐨𝐮𝐩 _*${groupMetadata.subject}*_`, mentioned, true)
+						mentions(`Pedido Recebido, Rebaixado @${mentioned[0].split('@')[0]}\n a membro comum _*${groupMetadata.subject}*_`, mentioned, true)
 						client.groupDemoteAdmin(from, mentioned)
 					}
 					break
