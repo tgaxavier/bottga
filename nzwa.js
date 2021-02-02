@@ -2003,7 +2003,7 @@ async function starts() {
                                         }
                                         break
                                 case 'register':
-                                        if (isRegister) return  reply(`「Registrado 」\n\nEu registrei voce...`)
+                                        if (isRegister) return  reply(`「Registrado 」\n\nVoce Ja Esta Registrado...`)
                                         if (!q.includes('|')) return  reply(ind.wrongf())
                                         const namaUser = q.substring(0, q.indexOf('|') - 0)
                                         const umurUser = q.substring(q.lastIndexOf('|') + 1)
