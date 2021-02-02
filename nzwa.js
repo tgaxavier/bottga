@@ -315,7 +315,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Ola @${num.split('@')[0]}\nBem Vindo ao hospicio*${mdata.subject}*`
+				teks = `Ola @${num.split('@')[0]}\nBem Vindo ao hospicio *${mdata.subject}*`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			} else if (anu.action == 'remove') {
@@ -325,7 +325,7 @@ async function starts() {
 				} catch {
 					ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
 				}
-				teks = `Adeus Aqui So fica Quem Transa @${num.split('@')[0]}👋`
+				teks = `Adeus Aqui So fica Quem Transa @${num.split('@')[0]}👋`
 				let buff = await getBuffer(ppimg)
 				client.sendMessage(mdata.id, buff, MessageType.image, {caption: teks, contextInfo: {"mentionedJid": [num]}})
 			}
@@ -1077,6 +1077,12 @@ async function starts() {
 					client.blockUser (`${body.slice(8)}@c.us`, "add")
 					client.sendMessage(from, `Pedido recebido bloquear ${body.slice(8)}@c.us`, text)
 					break
+					case 'unblock':
+					if (!isGroup) return reply(mess.only.group)
+					if (!isOwner) return reply(mess.only.ownerB)
+				    client.blockUser (`${body.slice(9)}@c.us`, "remove")
+					client.sendMessage(from, `Pedido recebido, Desbloquear ${body.slice(9)}@c.us`, text)
+				    break
 				case 'hilih':
 					client.updatePresence(from, Presence.composing) 
 					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/hilih?teks=${body.slice(7)}`, {method: 'get'})
