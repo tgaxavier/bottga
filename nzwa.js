@@ -1584,7 +1584,7 @@ async function starts() {
 						if (isWelkom) return reply('Ja esta ativo')
 						welkom.push(from)
 						fs.writeFileSync('./database/json/welkom.json', JSON.stringify(welkom))
-						reply('❮ Ativo, agora passarei a dar boas vindas ❯😁')
+						reply('❮ Ativado, recurso de boas vindas❯😁')
 					} else if (Number(args[0]) === 0) {
 						welkom.splice(from, disable)
 						fs.writeFileSync('./database/json/welkom.json', JSON.stringify(welkom))
