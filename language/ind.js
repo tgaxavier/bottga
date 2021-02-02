@@ -19,7 +19,7 @@ exports.pc = () => {
 }
 
 exports.registered = (namaUser, umurUser, serialUser, time, sender) => {
-        return`*「  CADASTRADO 」*\n\nCadrasto efetuado com sucesso \n\n ┠≽ *DATA* \n │ \n╰╼≽ ❏ Nome : ${namaUser} \n  ╰╼≽ ❏ Numero : wa.me/${sender.split("@")[0]} \n  ╰╼≽ ❏ idade : ${umurUser} \n  ╰╼≽ ❏ Registrado dia: ${time} \n\n╰╼≽ ❏ NS: ${serialUser} \n\n ❏ NOTA: \n NÃO ESQUEÇA ESTE NÚMERO PORQUE ISTO É IMPORTANTE`
+        return`*「  CADASTRADO 」*\n\nCadrasto efetuado com sucesso \n\n ┠≽ *DATA* \n │ \n ╰╼≽ ❏ Nome : ${namaUser} \n╰╼≽ ❏ Numero : wa.me/${sender.split("@")[0]} \n╰╼≽ ❏ idade : ${umurUser} \n╰╼≽ ❏ Registrado dia: ${time} \n╰╼≽ ❏ NS: ${serialUser} \n\n ❏ NOTA: \n NÃO ESQUEÇA ESTE NÚMERO PORQUE ISTO É IMPORTANTE`
 }
 
 exports.cmdnf = (prefix, command) => {
