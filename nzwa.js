@@ -1297,14 +1297,14 @@ async function starts() {
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = 'Pedido recebido, se lascou :\n'
+						teks = 'Pedido recebido, esse nao enche mais o saco:\n'
 						for (let _ of mentioned) {
 							teks += `@${_.split('@')[0]}\n`
 						}
 						mentions(teks, mentioned, true)
 						client.groupRemove(from, mentioned)
 					} else {
-						mentions(`Pedido recebido, se lascou : @${mentioned[0].split('@')[0]}`, mentioned, true)
+						mentions(`Pedido recebido, esse nao enche mais o saco : @${mentioned[0].split('@')[0]}`, mentioned, true)
 						client.groupRemove(from, mentioned)
 					client.sendMessage(mentioned, 'hahah ja era', text)
 					}
